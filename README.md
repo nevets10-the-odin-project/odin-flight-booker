@@ -1,24 +1,25 @@
-# README
+# Project: Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We’ll be creating a one-way flight booker. You’ll get lots of practice populating and building dropdown menus, radio buttons, and nested submissions. Let the fun begin!
 
-Things you may want to cover:
+---
 
-* Ruby version
+## DB Brainstorming
 
-* System dependencies
+Brainstorming is done prior to going through the project instructions beyond the first step.
 
-* Configuration
+Tables
+- Passengers
+    1. Name
+    1. Age
 
-* Database creation
+- Flights
+    1. Origin
+    1. Destination
+    1. Take-off Date/Time
+    1. Arrival Date/Time
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Airports
+    1. Airport Code
+    1. Airport Name
+    1. Airport City (or FK from a locations table)
