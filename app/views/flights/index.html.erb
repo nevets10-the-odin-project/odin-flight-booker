@@ -1,1 +1,13 @@
 <h1>Flights</h1>
+<p>The best place to find one-way flights!</p>
+
+<%= form_with method: :get do |f| %>
+    <%= f.label :departure_airports %>
+    <%= f.collection_select :departure_airports, Airport.all, :id, :name %>
+    <br>
+    <%= f.label :arriving_airports %>
+    <%= f.collection_select :arriving_airports, Airport.all, :id, :name %>
+    <br>
+    <%= f.label :number_of_passengers %>
+    <%= f.select :number_of_passengers, [1,2,3,4] %>
+<% end %>
