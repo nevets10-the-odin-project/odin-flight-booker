@@ -1,12 +1,12 @@
 <h1>Flights</h1>
 <p>The best place to find one-way flights!</p>
-
+<div>
 <%= form_with method: :get do |f| %>
     <%= f.label :departure_airports %>
-    <%= f.collection_select :departure_airports, Airport.all, :code, :name %>
+    <%= f.collection_select :departure_airport, Airport.all, :code, :name %>
     <br>
     <%= f.label :arriving_airports %>
-    <%= f.collection_select :arriving_airports, Airport.all, :code, :name %>
+    <%= f.collection_select :arriving_airport, Airport.all, :code, :name %>
     <br>
     <%= f.label :number_of_passengers %>
     <%= f.select :number_of_passengers, [1,2,3,4] %>
@@ -16,3 +16,10 @@
     <br>
     <%= f.submit :search %>
 <% end %>
+</div>
+<br>
+<div>
+<%= form_with do |f| %>
+    <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
+<% end %>
+</div>
