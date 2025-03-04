@@ -12,7 +12,8 @@
     <%= f.select :number_of_passengers, [1,2,3,4] %>
     <br>
     <%= f.label :departure_time %>
-    <%= f.date_select :departure_time, order: [:month, :day] %>
+    <%= f.date_select :departure_time %>
+    <div>(Flights only take place on April 1st, 2025)</div>
     <br>
     <%= f.submit :search %>
 <% end %>

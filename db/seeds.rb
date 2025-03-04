@@ -14,34 +14,32 @@ ActiveRecord::Base.connection.reset_sequence!('flights', 'id', 1)
 [
   ['ATL', 'Hartsfield-Jackson Atlanta International Airport'],
   ['DFW', 'Dallas-Fort Worth International Airport'],
-  ['DEN', 'Denver International Airport'],
-  ['PEK', 'Beijing Capital International Airport'],
-  ['PKX', 'Beijing Daxing International Airport']
+  ['DEN', 'Denver International Airport']
 ].each do |airport|
   Airport.find_or_create_by!(code: airport[0], name: airport[1])
 end
 
 [
-  [Time.new(2025, 1, 1, 8, 0, 0, 0), 5, 1, 2],
-  [Time.new(2025, 2, 28, 12, 0, 0, 0), 1, 2, 12],
-  [Time.new(2025, 2, 18, 16, 0, 0, 0), 2, 3, 8],
-  [Time.new(2025, 3, 5, 2, 0, 0, 0), 3, 4, 4],
-  [Time.new(2025, 5, 16, 18, 0, 0, 0), 4, 5, 6],
-  [Time.new(2025, 7, 30, 23, 0, 0, 0), 5, 4, 7],
-  [Time.new(2025, 9, 10, 4, 0, 0, 0), 1, 3, 3],
-  [Time.new(2025, 6, 12, 6, 0, 0, 0), 2, 1, 9],
-  [Time.new(2025, 8, 3, 6, 0, 0, 0), 3, 2, 10],
-  [Time.new(2025, 2, 8, 6, 0, 0, 0), 4, 1, 6],
-  [Time.new(2025, 9, 11, 9, 0, 0, 0), 5, 2, 5],
-  [Time.new(2025, 10, 12, 13, 0, 0, 0), 1, 3, 4],
-  [Time.new(2025, 12, 19, 12, 0, 0, 0), 2, 4, 3],
-  [Time.new(2025, 6, 23, 7, 0, 0, 0), 3, 5, 10],
-  [Time.new(2025, 4, 10, 10, 0, 0, 0), 4, 3, 8],
-  [Time.new(2025, 2, 24, 20, 0, 0, 0), 5, 3, 9],
-  [Time.new(2025, 7, 4, 5, 0, 0, 0), 1, 4, 12],
-  [Time.new(2025, 5, 8, 9, 0, 0, 0), 2, 4, 4],
-  [Time.new(2025, 6, 9, 5, 0, 0, 0), 3, 1, 6],
-  [Time.new(2025, 3, 17, 4, 0, 0, 0), 4, 2, 5]
+  [Time.new(2025, 4, 1, 8, 0, 0, 0), 1, 2, 2],
+  [Time.new(2025, 4, 1, 12, 0, 0, 0), 2, 1, 12],
+  [Time.new(2025, 4, 1, 16, 0, 0, 0), 3, 2, 8],
+  [Time.new(2025, 4, 1, 2, 0, 0, 0), 1, 3, 4],
+  [Time.new(2025, 4, 1, 18, 0, 0, 0), 2, 3, 6],
+  [Time.new(2025, 4, 1, 23, 0, 0, 0), 3, 1, 7],
+  [Time.new(2025, 4, 1, 4, 0, 0, 0), 1, 2, 3],
+  [Time.new(2025, 4, 1, 6, 0, 0, 0), 2, 1, 9],
+  [Time.new(2025, 4, 1, 6, 0, 0, 0), 3, 2, 10],
+  [Time.new(2025, 4, 1, 6, 0, 0, 0), 1, 3, 6],
+  [Time.new(2025, 4, 1, 9, 0, 0, 0), 2, 3, 5],
+  [Time.new(2025, 4, 1, 13, 0, 0, 0), 3, 1, 4],
+  [Time.new(2025, 4, 1, 12, 0, 0, 0), 1, 2, 3],
+  [Time.new(2025, 4, 1, 7, 0, 0, 0), 2, 1, 10],
+  [Time.new(2025, 4, 1, 10, 0, 0, 0), 3, 2, 8],
+  [Time.new(2025, 4, 1, 20, 0, 0, 0), 1, 3, 9],
+  [Time.new(2025, 4, 1, 5, 0, 0, 0), 2, 3, 12],
+  [Time.new(2025, 4, 1, 9, 0, 0, 0), 3, 1, 4],
+  [Time.new(2025, 4, 1, 5, 0, 0, 0), 1, 2, 6],
+  [Time.new(2025, 4, 1, 4, 0, 0, 0), 2, 1, 5]
 ].each do |flight|
   Flight.find_or_create_by!(start: flight[0], departure_airport: Airport.find(flight[1]), arriving_airport: Airport.find(flight[2]),
                             duration: flight[3])
