@@ -20,6 +20,9 @@
 <br>
 <div>
 <%= form_with do |f| %>
-    <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
+    <div class="flights">
+        <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
+    </div>
+    <%= f.submit :submit %>
 <% end %>
 </div>
