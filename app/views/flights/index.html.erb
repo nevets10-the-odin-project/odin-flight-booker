@@ -24,6 +24,7 @@
     <%= form_with do |f| %>
         <div class="flights">
             <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
+            <%= f.hidden_field :passenger_count, passenger_count: params[:number_of_passengers].to_i %>
         </div>
         <%= f.submit :submit %>
     <% end %>
