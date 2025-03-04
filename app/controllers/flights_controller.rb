@@ -6,6 +6,6 @@ class FlightsController < ApplicationController
     puts @departure_time
     @flights = Flight.where(departure_airport: Airport.where(code: params[:departure_airport]))
                      .where(arriving_airport: Airport.where(code: params[:arriving_airport]))
-                     .where(start: @departure_time)
+                     .where(start: @departure_time..@departure_time + 1.day)
   end
 end
