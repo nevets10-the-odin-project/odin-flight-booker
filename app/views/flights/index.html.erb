@@ -20,7 +20,7 @@
 </div>
 <br>
 <div>
-<% if @flights.any? %>
+<% if @flights&.any? %>
     <%= form_with do |f| %>
         <div class="flights">
             <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
