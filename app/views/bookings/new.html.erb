@@ -1,6 +1,26 @@
 <h1>Booking</h1>
 <h2>Flight Information</h2>
-<p>Departure Time: <%= @flight.start %></p>
-<p>Flight ID: <%= @flight.id %></p>
-<p>Departing Airport: <%= @flight.departure_airport.code %></p>
-<p>Arriving Airport: <%= @flight.arriving_airport.code %></p>
+<div>
+    <p>Departure Time: <%= @flight.start %></p>
+    <p>Flight ID: <%= @flight.id %></p>
+    <p>Departing Airport: <%= @flight.departure_airport.code %></p>
+    <p>Arriving Airport: <%= @flight.arriving_airport.code %></p>
+</div>
+<br>
+<%= form_with url: 'create' do |f| %>
+    <%= f.hidden_field :flight_id, value: @flight.id %>
+    <% @passengers.each_with_index do |passenger, passenger_index| %>
+    <%= f.fields_for :passenger, index: passenger_index do |sub_form| %>
+        <%= sub_form.label "Passenger #{passenger_index + 1} Info" %>
+        <br>
+        <%= sub_form.label :name %>
+        <%= sub_form.text_field :name %>
+        <br>
+        <%= sub_form.label :email %>
+        <%= sub_form.email_field :email %>
+    <br>
+    <% end %>
+    <br>
+    <% end %>
+    <%= f.submit %>
+<% end %>
