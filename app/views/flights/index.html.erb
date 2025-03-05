@@ -23,7 +23,7 @@
 <% if @flights&.any? %>
     <%= form_with url: '/bookings/new', method: :get do |f| %>
         <div class="flights">
-            <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info %>
+            <%= f.collection_radio_buttons :flight_id, @flights, :id, :format_flight_info, {}, required: true %>
             <%= f.hidden_field :passenger_count, value: params['number_of_passengers'] %>
         </div>
         <%= f.submit :submit %>
