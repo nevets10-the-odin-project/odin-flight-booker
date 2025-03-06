@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :flights
-  belongs_to :passengers
+  belongs_to :flight, class_name: 'Flight'
+  has_many :passenger, class_name: 'Passenger'
+
+  accepts_nested_attributes_for :passenger
 end

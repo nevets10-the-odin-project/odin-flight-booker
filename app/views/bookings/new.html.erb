@@ -9,7 +9,7 @@
 <br>
 <%= form_with url: 'create' do |f| %>
     <%= f.hidden_field :flight_id, value: @flight.id %>
-    <% @passengers.each_with_index do |passenger, passenger_index| %>
+    <% @booking.passenger.each_with_index do |passenger, passenger_index| %>
     <%= f.fields_for :passenger, index: passenger_index do |sub_form| %>
         <%= sub_form.label "Passenger #{passenger_index + 1} Info" %>
         <br>

@@ -1,19 +1,20 @@
 class BookingsController < ApplicationController
   def new
     @flight = Flight.find(params['flight_id'])
-    @passengers = []
+    @booking = Booking.new
     params['passenger_count'].to_i.times do
-      @passengers << Passenger.new
+      @booking.passenger.build
     end
   end
 
   def create
+    p "THIS IS PASSENGER: #{params[:passenger]}"
     @booking = Booking.new(bookings_params)
   end
 
   private
 
   def bookings_params
-    params.expect(:flight_id, passenger: [[id: %i[name email]]])
+    params.expect(:flight_id, passenger: %i[name email])
   end
 end
