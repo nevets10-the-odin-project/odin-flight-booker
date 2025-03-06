@@ -7,19 +7,16 @@
     <p>Arriving Airport: <%= @flight.arriving_airport.code %></p>
 </div>
 <br>
-<%= form_with url: 'create' do |f| %>
+<%= form_with model: @booking, url: 'create' do |f| %>
     <%= f.hidden_field :flight_id, value: @flight.id %>
-    <% @booking.passenger.each_with_index do |passenger, passenger_index| %>
-    <%= f.fields_for :passenger, index: passenger_index do |sub_form| %>
-        <%= sub_form.label "Passenger #{passenger_index + 1} Info" %>
+    <%= f.label "Passenger Info" %>
+    <%= f.fields_for :passengers, @booking.passengers do |passenger_form| %>
         <br>
-        <%= sub_form.label :name %>
-        <%= sub_form.text_field :name %>
+        <%= passenger_form.label :name %>
+        <%= passenger_form.text_field :name %>
         <br>
-        <%= sub_form.label :email %>
-        <%= sub_form.email_field :email %>
-    <br>
-    <% end %>
+        <%= passenger_form.label :email %>
+        <%= passenger_form.email_field :email %>
     <br>
     <% end %>
     <%= f.submit %>
