@@ -22,4 +22,4 @@ Tables
 - Airports
     1. Airport Code
     1. Airport Name
-    1. Airport City (or FK from a locations table)
+    1. Airport City (or FK from a locations table)# odin-flight-booker
