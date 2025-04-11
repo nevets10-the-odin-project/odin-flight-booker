@@ -17,7 +17,7 @@ A typical airline booking flow:
 
 We’ll be creating a one-way flight booker. You’ll get lots of practice populating and building dropdown menus, radio buttons, and nested submissions. Let the fun begin!
 
-## Post-project Review
+## Post project Review
 
 This project was pretty straight forward except for a small syntax error with the nested params which costed me several days of time to finally figure out.
 
